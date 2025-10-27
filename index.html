@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Annadata Organic Food - Home</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --green: #2E7D32;
+      --accent-green: #3B7A57;
+      --yellow: #F9A825;
+      --earth-yellow: #FFD54F;
+      --cream: #FAFAF2;
+      --text: #333333;
+      --muted: #6b6b6b;
+      --max-width: 1140px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: 'Poppins', sans-serif;
+      background:var(--cream);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:90%;max-width:var(--max-width);margin:0 auto}
+
+    /* NAV */
+    header{background:transparent;position:sticky;top:0;z-index:50;padding:18px 0}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;gap:12px;align-items:center;font-family:'Playfair Display',serif;color:var(--accent-green);font-size:22px}
+    .nav-links{display:flex;gap:22px;align-items:center;font-weight:500;color:var(--accent-green)}
+    .nav-links a{padding:8px 6px;border-radius:6px}
+    .nav-links a:hover{background:rgba(59,122,87,0.06)}
+    .btn-primary{background:var(--accent-green);color:white;padding:10px 16px;border-radius:8px;font-weight:600}
+    .btn-outline{border:2px solid var(--earth-yellow);padding:8px 12px;border-radius:8px;background:transparent;font-weight:600}
+
+    /* HERO */
+    .hero{position:relative;overflow:hidden;border-radius:12px;margin-top:18px}
+    .hero .hero-bg{width:100%;height:520px;object-fit:cover;filter:brightness(0.85)}
+    .hero-overlay{position:absolute;inset:0;display:flex;align-items:center}
+    .hero-content{color:white;padding:48px;max-width:650px}
+    .hero h1{font-family:'Playfair Display',serif;font-size:48px;margin:0 0 12px;line-height:1.05}
+    .hero p{font-size:18px;color:rgba(255,255,255,0.95);margin-bottom:18px}
+    .hero .ctas{display:flex;gap:12px}
+    .badge-row{display:flex;gap:12px;margin-top:14px;align-items:center}
+    .pill{background:rgba(255,255,255,0.08);padding:6px 10px;border-radius:999px;font-size:13px}
+
+    /* WHY CHOOSE */
+    .why{background:linear-gradient(180deg, rgba(255,245,224,0.9), rgba(255,250,240,0.95));padding:36px;border-radius:12px;margin-top:28px}
+    .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .why-card{background:white;padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(18,18,18,0.04);text-align:center}
+    .why-card h4{margin:10px 0 6px;color:var(--accent-green);font-weight:600}
+    .why-card p{font-size:14px;color:var(--muted);margin:0}
+
+    /* PRODUCTS */
+    .products{margin-top:28px}
+    .section-title{font-family:'Playfair Display',serif;font-size:32px;color:var(--accent-green);margin-bottom:12px}
+    .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .product{background:white;border-radius:12px;padding:14px;box-shadow:0 8px 20px rgba(0,0,0,0.04);transition:transform .22s ease,box-shadow .22s ease}
+    .product:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,0.08)}
+    .product .img{height:200px;border-radius:8px;overflow:hidden;background:#eee}
+    .product h5{margin:12px 0 6px;color:var(--accent-green)}
+    .product .price{font-weight:700}
+    .add-cart{display:inline-block;margin-top:10px;padding:8px 10px;border-radius:8px;background:var(--earth-yellow);font-weight:700}
+
+    /* FARMERS */
+    .farmers{display:flex;gap:20px;align-items:center;margin-top:36px;background:white;padding:20px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.03)}
+    .farmers .left{flex:1}
+    .farmers .right{flex:1}
+    .farmer-img{height:260px;border-radius:10px;overflow:hidden;background:#eee}
+
+    /* CTA */
+    .cta{margin-top:36px;padding:36px;border-radius:12px;background:linear-gradient(90deg,var(--accent-green),var(--green));color:white;text-align:center}
+    .cta h3{font-family:'Playfair Display',serif;margin:0 0 8px;font-size:28px}
+    .cta p{margin:0 0 14px;color:rgba(255,255,255,0.95)}
+
+    /* FOOTER */
+    footer{margin-top:36px;padding:28px 0;color:var(--muted)}
+    .footer-row{display:flex;justify-content:space-between;align-items:center}
+
+    /* Mobile */
+    @media (max-width:900px){
+      .hero .hero-bg{height:420px}
+      .hero h1{font-size:36px}
+      .why-grid{grid-template-columns:repeat(2,1fr)}
+      .products-grid{grid-template-columns:repeat(2,1fr)}
+      .farmers{flex-direction:column}
+    }
+    @media (max-width:480px){
+      .nav-links{display:none}
+      .hero .hero-bg{height:360px}
+      .hero-content{padding:22px}
+      .products-grid{grid-template-columns:1fr}
+      .why-grid{grid-template-columns:1fr}
+      .logo{font-size:18px}
+    }
+
+    /* Smooth scroll & small animations */
+    html{scroll-behavior:smooth}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">🌾 <strong>Annadata</strong> Organic Food</div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#farmers">Farmers</a>
+        <a href="#contact">Contact</a>
+        <a class="btn-primary" href="#products">Shop Now</a>
+      </nav>
+      <div class="mobile-actions">
+        <button class="btn-primary" style="display:none">Shop</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="home">
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <img class="hero-bg" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&s=9f6b6f9dbf5a895b1c7a0a6b5d6a2d6f" alt="Organic Farm">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h1>Pure Food from the Heart of Nature</h1>
+          <p><em>Empowering farmers, enriching lives with organic goodness.<br>Where purity meets tradition.</em></p>
+          <div class="ctas">
+            <a class="btn-primary" href="#products">Explore Products</a>
+            <a class="btn-outline" href="#about">Know Our Story</a>
+          </div>
+          <div class="badge-row" style="margin-top:18px">
+            <span class="pill">100% Organic</span>
+            <span class="pill">Farmer Direct</span>
+            <span class="pill">Pesticide Free</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why" aria-label="Why choose us">
+      <div class="container">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <h3 class="section-title">Why Choose Annadata</h3>
+          <p style="color:var(--muted);margin:0">Pure, local, and trustworthy — from village fields to your kitchen.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card"><div style="font-size:28px">🌱</div><h4>100% Organic</h4><p>No chemicals, no preservatives — only nature.</p></div>
+          <div class="why-card"><div style="font-size:28px">👨‍🌾</div><h4>Direct from Farmers</h4><p>Fair prices for farmers; fresh produce for you.</p></div>
+          <div class="why-card"><div style="font-size:28px">🍯</div><h4>Farm Fresh</h4><p>Picked and packed with care to retain nutrients.</p></div>
+          <div class="why-card"><div style="font-size:28px">♻️</div><h4>Eco Friendly</h4><p>Sustainable practices that protect the soil.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="products" aria-label="Products">
+      <div class="container">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-grid">
+          <div class="product" role="article">
+            <div class="img"><img src="https://images.unsplash.com/photo-1524594154904-8a9b1d6b4d62?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=6d7f8b9ef2be5fd1d3fdc8b7b8e2c5d1" alt="Organic Honey"></div>
+            <h5>Organic Honey</h5>
+            <p class="price">₹249</p>
+            <a class="add-cart" href="#cart">Add to Cart</a>
+          </div>
+
+          <div class="product" role="article">
+            <div class="img"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=ae2d4b7c2f6f5c9b3a0b6f9d0d7e6c2f" alt="Fresh A2 Milk"></div>
+            <h5>Fresh A2 Milk</h5>
+            <p class="price">₹79 / L</p>
+            <a class="add-cart" href="#cart">Add to Cart</a>
+          </div>
+
+          <div class="product" role="article">
+            <div class="img"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1f7c3c2a6b7d8e3f4c2b1a0d9f5e6c3b" alt="Organic Turmeric"></div>
+            <h5>Organic Turmeric</h5>
+            <p class="price">₹129</p>
+            <a class="add-cart" href="#cart">Add to Cart</a>
+          </div>
+
+          <div class="product" role="article">
+            <div class="img"><img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d" alt="Farm Fresh Vegetables"></div>
+            <h5>Farm Fresh Vegetables</h5>
+            <p class="price">₹99 / kg</p>
+            <a class="add-cart" href="#cart">Add to Cart</a>
+          </div>
+
+          <div class="product" role="article">
+            <div class="img"><img src="https://images.unsplash.com/photo-1498575207491-9f5c9a6d1a0b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcdef1234567890" alt="Organic Rice"></div>
+            <h5>Organic Rice</h5>
+            <p class="price">₹199</p>
+            <a class="add-cart" href="#cart">Add to Cart</a>
+          </div>
+
+          <div class="product" role="article">
+            <div class="img"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=123456abcdef7890" alt="Organic Pulses"></div>
+            <h5>Organic Pulses</h5>
+            <p class="price">₹149</p>
+            <a class="add-cart" href="#cart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FARMERS STORY -->
+    <section id="farmers" class="farmers" aria-label="Farmers">
+      <div class="left">
+        <div class="farmer-img"><img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d" alt="Farmer"></div>
+      </div>
+      <div class="right">
+        <h3 class="section-title">Our Farmers</h3>
+        <p style="color:var(--muted)">At Annadata, we believe our farmers are the heart of purity. Every grain, fruit, and vegetable we bring to you is grown by hands that respect the soil. We work with village farmers to ensure fair prices, sustainable practices, and transparent supply chains.</p>
+        <p style="margin-top:12px"><a class="btn-outline" href="#about">Meet Our Farmers</a></p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" aria-label="Join">
+      <h3>Join the organic revolution today!</h3>
+      <p>Eat Pure, Stay Healthy with Annadata.</p>
+      <a class="btn-primary" href="#products">Shop Now</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+      <div class="container footer-row">
+        <div>
+          <strong>Annadata Organic Food</strong><br/>
+          <small style="color:var(--muted)">Contact: +91-XXXXXXXXXX | hello@annadata.org</small>
+        </div>
+        <div style="text-align:right;color:var(--muted)">
+          <div>Follow us</div>
+          <div style="margin-top:8px">Instagram • Facebook • YouTube</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:18px;color:var(--muted)">© 2025 Annadata Organic Food — The farmer is the true Annadata — the giver of life.</div>
+    </footer>
+  </main>
+
+  <script>
+    // Small interaction: smooth hover (already via css). Add tiny scroll reveal
+    document.addEventListener('DOMContentLoaded',function(){
+      const products = document.querySelectorAll('.product');
+      const io = new IntersectionObserver((entries)=> {
+        entries.forEach(e=>{
+          if(e.isIntersecting){ e.target.style.opacity=1; e.target.style.transform='translateY(0)'; io.unobserve(e.target) }
+        });
+      },{threshold:0.12});
+      products.forEach(p=>{p.style.opacity=0; p.style.transform='translateY(20px)'; io.observe(p)});
+    });
+  </script>
+</body>
+</html>
